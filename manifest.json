@@ -1,0 +1,11 @@
+{
+    "manifest_version": 3,
+    "name": "Suraj's Timer",
+    "version": "1.0",
+    "description": "An advanced timer with settings for countdown or count-up mode and custom color.",
+    "permissions": ["storage"],
+    "chrome_url_overrides": {
+      "newtab": "popup.html"
+    }
+  }
+  

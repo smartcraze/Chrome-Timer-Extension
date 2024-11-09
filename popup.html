@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Suraj Vishwakarma</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Hamburger Menu Icon -->
+  <div id="menu-toggle" class="hamburger-menu">
+    ☰
+  </div>
+
+  <!-- Settings Popup Modal -->
+  <div id="settings-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-modal" class="close-button">&times;</span> <!-- Close button -->
+      <h2>Settings</h2>
+
+      <label for="target-date">Target Date and Time:</label>
+      <input type="datetime-local" id="target-date" />
+
+      <label for="grid-color">Grid Color:</label>
+      <input type="color" id="grid-color" value="#3a1369" /> <!-- Default color is purple -->
+
+      <label for="clock-direction">Clock Direction:</label>
+      <select id="clock-direction">
+        <option value="countdown">Countdown (Reversed)</option>
+        <option value="countup" selected>Count Up (Normal)</option>
+      </select>
+
+      <label for="motivational-text">Motivational Text:</label>
+      <input type="text" id="motivational-text" placeholder="The clock is ticking, go faster!" />
+
+      <button id="apply-settings">Apply</button>
+    </div>
+  </div>
+
+  <!-- Full-Page Grid and Timer Display -->
+  <div class="grid-container">
+    <div class="grid" id="grid"></div>
+    <h1 class="motivational-text" id="motivational-text-display">The clock is ticking, go faster!</h1>
+    <div class="timer" id="timer">
+      <span id="hours">00</span> HOURS
+      <span id="minutes">00</span> MINUTES
+      <span id="seconds">00</span> SECONDS
+      <span id="ampm"></span> <!-- AM/PM Display -->
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
