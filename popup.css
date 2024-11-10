@@ -123,3 +123,11 @@ body, html {
   cursor: pointer;
   color: white;
 }
+.github{
+  
+  bottom: 10px;
+  right: 15px;
+  cursor: pointer;
+  color: white;
+  font-size: medium;
+}
