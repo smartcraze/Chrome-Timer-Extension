@@ -1,22 +1,36 @@
-// Set default values
+// Default settings
 let targetDate = null; // Null means current time by default
 let gridColor = "#3a1369"; // Default grid color
 let clockDirection = "countup"; // Default direction is count up
 let motivationalText = "The clock is ticking, go faster!";
 
-// Initialize grid with specified color
+// Initialize the grid with dynamic sizing
 function initGrid() {
   const grid = document.getElementById('grid');
   grid.innerHTML = ""; // Clear existing squares
-  const numSquares = 1566; // Adjust the number of squares to fill the screen
+
+  const squareSize = 20; // Size of each square (in pixels)
+  const screenWidth = window.innerWidth;
+  const screenHeight = window.innerHeight;
+
+  const numColumns = Math.ceil(screenWidth / squareSize);
+  const numRows = Math.ceil(screenHeight / squareSize);
+
+  grid.style.gridTemplateColumns = `repeat(${numColumns}, ${squareSize}px)`;
+  grid.style.gridTemplateRows = `repeat(${numRows}, ${squareSize}px)`;
+
+  const numSquares = numColumns * numRows;
+
   for (let i = 0; i < numSquares; i++) {
     const square = document.createElement('div');
+    square.style.width = `${squareSize}px`;
+    square.style.height = `${squareSize}px`;
     square.style.backgroundColor = gridColor;
     grid.appendChild(square);
   }
 }
 
-// Update timer display
+// Update the timer display
 function updateTimer() {
   const now = new Date();
   let displayDate = targetDate || now; // Show current time if targetDate is null
@@ -95,10 +109,13 @@ document.getElementById('apply-settings').addEventListener('click', () => {
   });
 
   document.getElementById('motivational-text-display').textContent = motivationalText;
-  
+
   initGrid(); // Update grid color
   document.getElementById('settings-modal').style.display = 'none';
 });
+
+// Event listener to resize grid dynamically
+window.addEventListener('resize', initGrid);
 
 // Initialize the grid, load settings, and start the timer
 loadSettings(); // Load settings from storage

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Tab</title>
   <link rel="icon" href="128.png" type="image/x-icon">
   <link rel="stylesheet" href="popup.css">
@@ -15,14 +16,14 @@
   <!-- Settings Popup Modal -->
   <div id="settings-modal" class="modal">
     <div class="modal-content">
-      <span id="close-modal" class="close-button">&times;</span> <!-- Close button -->
+      <span id="close-modal" class="close-button">&times;</span>
       <h2>Settings</h2>
 
       <label for="target-date">Target Date and Time:</label>
       <input type="datetime-local" id="target-date" />
 
       <label for="grid-color">Grid Color:</label>
-      <input type="color" id="grid-color" value="#3a1369" /> <!-- Default color is purple -->
+      <input type="color" id="grid-color" value="#3a1369" />
 
       <label for="clock-direction">Clock Direction:</label>
       <select id="clock-direction">
@@ -33,12 +34,9 @@
       <label for="motivational-text">Motivational Text:</label>
       <input type="text" id="motivational-text" placeholder="The clock is ticking, go faster!" />
 
-    
-    <button id="apply-settings">Apply</button>
-
-    <h3>Made With ❤️ By Suraj vishwakarma</h3>
-    <a class="github"  target="_blank" href="https://github.com/smartcraze">Follow Github</a>
-
+      <button id="apply-settings">Apply</button>
+      <h3>Made With ❤️ By Suraj Vishwakarma</h3>
+      <a class="github" target="_blank" href="https://github.com/smartcraze">Follow Github</a>
     </div>
   </div>
 
@@ -50,7 +48,7 @@
       <span id="hours">00</span> HOURS
       <span id="minutes">00</span> MINUTES
       <span id="seconds">00</span> SECONDS
-      <span id="ampm"></span> <!-- AM/PM Display -->
+      <span id="ampm"></span>
     </div>
   </div>
 

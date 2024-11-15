@@ -21,7 +21,7 @@ body, html {
 
 /* Modal for Settings */
 .modal {
-  display: none; /* Hidden by default */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -99,9 +99,12 @@ body, html {
   position: absolute;
   top: 30%;
   text-align: center;
-  font-size: 3rem;
+  font-size: 3vw;
   color: #ffffff;
   width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+  word-wrap: break-word;
 }
 
 /* Centered Timer */
@@ -115,19 +118,24 @@ body, html {
   color: white;
   z-index: 5;
 }
-.close-button {
-  font-size: 50px;
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  cursor: pointer;
-  color: white;
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .motivational-text {
+    font-size: 5vw;
+  }
+
+  .timer {
+    font-size: 2rem;
+  }
 }
-.github{
-  
-  bottom: 10px;
-  right: 15px;
-  cursor: pointer;
-  color: white;
-  font-size: medium;
+
+@media (max-width: 480px) {
+  .motivational-text {
+    font-size: 6vw;
+  }
+
+  .timer {
+    font-size: 1.8rem;
+  }
 }
