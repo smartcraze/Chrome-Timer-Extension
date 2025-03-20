@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <link rel="icon" href="128.png" type="image/x-icon">
   <link rel="stylesheet" href="popup.css">
 </head>
+
 <body>
   <!-- Hamburger Menu Icon -->
   <div id="menu-toggle" class="hamburger-menu">
@@ -19,11 +21,26 @@
       <span id="close-modal" class="close-button">&times;</span>
       <h2>Settings</h2>
 
-      <label for="target-date">Target Date and Time:</label>
+      <label for="total-days">Total Days for Challenge:</label>
+      <input type="number" id="total-days" min="1" max="100" placeholder="e.g., 30 days" />
+
+      <label for="challenge-name">Challenge Name:</label>
+      <input type="text" id="challenge-name" placeholder="e.g., DSA Preparation" />
+
+      <label for="start-date">Challenge Start Date:</label>
+      <input type="date" id="start-date" />
+
+      <label for="target-date">Timer Target Date:</label>
       <input type="datetime-local" id="target-date" />
+
+      <label for="session-duration">Study Session Duration (minutes):</label>
+      <input type="number" id="session-duration" min="1" max="240" value="60" />
 
       <label for="grid-color">Grid Color:</label>
       <input type="color" id="grid-color" value="#3a1369" />
+
+      <label for="completed-color">Completed Day Color:</label>
+      <input type="color" id="completed-color" value="#4CAF50" />
 
       <label for="clock-direction">Clock Direction:</label>
       <select id="clock-direction">
@@ -35,14 +52,51 @@
       <input type="text" id="motivational-text" placeholder="The clock is ticking, go faster!" />
 
       <button id="apply-settings">Apply</button>
+      <button id="start-session" class="session-button">Start Session Timer</button>
       <h3>Made With ❤️ By Suraj Vishwakarma</h3>
       <a class="github" target="_blank" href="https://github.com/smartcraze">Follow Github</a>
+    </div>
+  </div>
+
+  <!-- Session Timer Modal -->
+  <div id="session-timer-modal" class="modal">
+    <div class="modal-content session-timer-content">
+      <span id="close-session-timer" class="close-button">&times;</span>
+      <h2>Study Session Timer</h2>
+      <div class="flip-timer">
+        <div class="flip-unit-container">
+          <div class="flip-unit">
+            <div class="top" id="session-minutes-top">25</div>
+            <div class="bottom" id="session-minutes-bottom">25</div>
+          </div>
+          <div class="unit-label">MINUTES</div>
+        </div>
+        <div class="flip-unit-container">
+          <div class="flip-unit">
+            <div class="top" id="session-seconds-top">00</div>
+            <div class="bottom" id="session-seconds-bottom">00</div>
+          </div>
+          <div class="unit-label">SECONDS</div>
+        </div>
+      </div>
+      <div class="session-controls">
+        <button id="pause-session">Pause</button>
+        <button id="reset-session">Reset</button>
+        <button id="end-session">End Session</button>
+      </div>
     </div>
   </div>
 
   <!-- Full-Page Grid and Timer Display -->
   <div class="grid-container">
     <div class="grid" id="grid"></div>
+    <div class="challenge-tracker">
+      <div id="day-tracker">Day <span id="current-day">0</span> of <span id="total-days-display">30</span>: <span
+          id="challenge-name-display">DSA Preparation</span></div>
+      <div id="progress-container">
+        <div id="progress-bar"></div>
+      </div>
+    </div>
     <h1 class="motivational-text" id="motivational-text-display">The clock is ticking, go faster!</h1>
     <div class="timer" id="timer">
       <span id="hours">00</span> HOURS
@@ -54,4 +108,5 @@
 
   <script src="popup.js"></script>
 </body>
+
 </html>
