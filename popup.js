@@ -1,6 +1,6 @@
 // Default settings
 let targetDate = null; // Null means current time by default
-let gridColor = "#3a1369"; // Default grid color
+let gridColor = "#0B3710"; // Default grid color
 let completedColor = "#4CAF50"; // Default completed day color
 let clockDirection = "countup"; // Default direction is count up
 let motivationalText = "The clock is ticking, go faster!";
@@ -252,6 +252,19 @@ document.getElementById('close-modal').addEventListener('click', () => {
 document.getElementById('close-session-timer').addEventListener('click', () => {
   document.getElementById('session-timer-modal').style.display = 'none';
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("settings-modal");
+
+  // Close modal when clicking outside of modal content
+  modal.addEventListener("click", function (event) {
+    if (!event.target.closest(".modal-content")) {
+      modal.style.display = "none";
+    }
+  });
+});
+
 
 // Apply settings and save to storage
 document.getElementById('apply-settings').addEventListener('click', () => {
